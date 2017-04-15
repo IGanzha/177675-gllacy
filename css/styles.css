@@ -1,0 +1,15 @@
+body {
+	background-color: #849d8f;
+}
+
+ul {
+	list-style: none;
+}
+
+.footer {
+	height:100px;
+	}
+
+.social_item {
+	display: inline-block;
+}
