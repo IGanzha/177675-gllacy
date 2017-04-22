@@ -1,15 +1,505 @@
 body {
 	background-color: #849d8f;
+	font-family: "Roboto", "Arial", sans-serif;
+	font-size: 18px;
+	line-height: 1.2;
+	margin: 0;
+	padding:0;
 }
+
+body > input[type="radio"] {
+  display: none;
+}
+
+* {
+	box-sizing: border-box;
+/*	margin: 0;
+	padding:0;*/
+}
+
+
 
 ul {
 	list-style: none;
 }
 
+.clearfix:after {
+	display: table;
+	content: "";
+	clear: both;
+}
+.btn {
+	font-size: 18px;
+	font-weight: 600;
+	display: inline-block;
+	height: 46px;
+	color:#fff;
+	text-decoration: none;
+	padding:12px 25px;
+	text-align: center;
+
+
+	text-shadow: 0 2px 5px rgba(160, 32, 11, 0.76);
+	background: #f26843;
+	background:    -moz-linear-gradient(top, #f26843 0%, #e74a35 100%);
+	background: -webkit-linear-gradient(top, #f26843 0%, #e74a35 100%);
+	background:         linear-gradient(to bottom, #f26843 0%, #e74a35 100%);
+	border-radius: 100px;
+	box-shadow: 0 2px 2px rgba(172, 16, 0, 0.64);
+}
+
+.btn:hover {
+	background: -moz-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
+	background: -webkit-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
+	background: linear-gradient(to bottom, #f58669 0%, #ec6f5e 100%);
+	box-shadow: 0 2px 2px rgba(172, 16, 0, 1);
+}
+
+.btn:active {
+	background:    -moz-linear-gradient(top, #d84732 0%, #e1613e 100%);
+	background: -webkit-linear-gradient(top, #d84732 0%, #e1613e 100%);
+	background:         linear-gradient(to bottom, #d84732 0%, #e1613e 100%);
+	box-shadow: inset 0 2px 2px rgba(172, 16, 0, 1);
+}
+
+.site_wrapper {
+  	min-width: 1200px;
+	background-repeat: no-repeat;
+  	background-position: top center;
+  	/*transition: background-image 0.5s ease, background-color 0.5s ease;*/
+}
+
+.site_wrapper::before,
+.site_wrapper::after {
+  	content: "";
+  	visibility: hidden;
+}
+
+.site_wrapper::before {
+	background-image: url("../img/Background2.png");
+}
+
+.site_wrapper::after {
+	background-image: url("../img/Background3.png");
+}
+
+.container {
+	width:1146px;
+	margin:0 auto;
+	padding:10px 0;
+}
+
+
+.logo_block {
+	float: left;
+}
+
+.header_nav {
+	float: left;
+	max-width: 50%;
+}
+
+.user_block {
+	float: right;
+}
+
+.catalog_list {
+	padding: 0;
+	margin:0;
+}
+
+.header-list {
+	padding: 0;
+	margin:0;
+}
+
+.header_list-item {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 30px;
+	position: relative;
+}
+
+.header_list-item:last-child {
+	margin-right: 0;
+}
+
+.catalog_nav {
+	background-color: white;
+	display: none;
+	position: absolute;
+	width:144px;
+	z-index: 10;
+}
+
+.header_list-item:hover .catalog_nav {
+	display: block;
+}
+
+.user_block-item {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	margin-right:11px;
+}
+
+.user_block-item:last-child {
+	margin-right:0;
+}
+
+.search_block {
+	background: #fff;
+	display: none;
+	width: 342px;
+	z-index: 10;
+	position: absolute;
+
+	left: -309px;
+}
+
+.enter_block {
+	background: #fff;
+	display: none;
+	position: absolute;
+	width: 277px;
+	z-index: 10;
+	left: -184px;
+}
+
+.user_block-item:hover .search_block, 
+.user_block-item:hover .enter_block,
+.user_block-item:hover .cart_preview {
+	display: block;
+}
+
+
+.cart_preview {
+	background: #fff;
+	display: none;
+	position: absolute;
+	width: 540px;
+	z-index: 10;
+	left:-420px;
+}
+
+
+
+.header_contacts {
+	float: right;
+}
+
+.header_add-info {
+	margin-bottom: -30px;
+}
+
+
+.breadcrubs_item {
+	display: inline-block;
+}
+
+
+.slider {
+	position: relative;
+	padding-top: 350px;
+	text-align: center;
+	color: #ffffff;
+}
+
+.slide {
+	display: none;
+}
+
+.slide-title {
+	width: 700px;
+	margin: 0 auto;
+	margin-top: 280px;
+	margin-bottom: 30px;
+	font-weight: 800;
+	font-size: 60px;
+}
+
+.slide-btn {
+	display: inline-block;
+	padding: 12px 45px;
+	height: 65px;
+	font-weight: 600;
+	font-size: 32px;
+	line-height: 44px;
+	vertical-align: middle;
+	color: #ffffff;
+
+}
+
+.slider_controls {
+	position: absolute;
+	bottom: 25px;
+	left: 0;
+	z-index: 20;
+	font-size: 0;
+	width:75px;
+}
+
+.slider_controls label {
+	display: inline-block;
+	/*если не задать ширину slider_controls, то они не хотят в линию становиться. Почему, ведь slider_controls div ?*/
+	/*если выбрать 2 или 3 фон, а потом нажать на 1-й лэйбл, то все лэйблы съезжают вниз... не могу понять почему*/
+	width: 17px;
+	height: 17px;
+	margin-right: 8px;
+	vertical-align: top;
+	background-color: transparent;
+	border: 2px solid #ffffff;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+#btn-1:checked ~ .site_wrapper #slide1,
+	/*для чего используют тильды, не могу понять..
+	можно написать #btn-1:checked #slide1 - т.е. без тильды и .site_wrapper?*/
+#btn-2:checked ~ .site_wrapper #slide2,
+#btn-3:checked ~ .site_wrapper #slide3 {
+	display: block;
+}
+
+#btn-1:checked ~ .site_wrapper {
+	background-color: #849d8f;
+	background-image: url("../img/Background1.png");
+	/*если что-то выпадает за футер, то там цвет фона остается по умолчанию ... почему? нужно исправить?  */
+}
+
+#btn-2:checked ~ .site_wrapper {
+	background-color: #8996a6;
+	background-image: url("../img/Background2.png");
+}
+
+#btn-3:checked ~ .site_wrapper {
+	background-color: #9d8b84;
+	background-image: url("../img/Background3.png");
+}
+
+#btn-1:checked ~ .site_wrapper label[for="btn-1"],
+#btn-2:checked ~ .site_wrapper label[for="btn-2"],
+#btn-3:checked ~ .site_wrapper label[for="btn-3"] {
+	background-color: #ffffff;
+}
+
+.banners_item {
+	font-size: 0;
+	/*не помогает обнуление размера шрифта, какие еще варианты есть? Или что я делаю не правильно? */
+	color:#fff;
+	padding: 25px 20px;
+	display: inline-block;
+	vertical-align: top;
+	width: 560px;
+	margin-right: 26px;
+	border-radius: 15px;
+}
+
+.banners_item:last-child {
+	margin-right: 0;
+}
+
+.raspberries {
+	background: url("../img/Малиновый фон.png") top left;
+	font-size: 18px;
+}
+
+.shoko {
+	background: url("../img/Шоколадный фон.png") top left;
+	font-size: 18px;
+}
+
+.products_list {
+	font-size: 0;
+	margin: 0;
+	padding:0;
+}
+
+.products_list-item {
+	font-size:14px;
+	display: inline-block;
+	vertical-align: top;
+	width: 266.4px;
+	margin-right: 26px;
+}
+
+.products_list-item:last-child,
+.products_list-item:nth-child(4),
+.products_list-item:nth-child(8)
+ {
+	margin-right: 0;
+}
+
+.product_pic {
+	border-radius: 50%;
+}
+
+.features {
+	background: url(../img/Waffles_pattern.png) top left;
+	padding: 27px 20px;
+	border-radius: 15px;
+}
+
+.features h3 {
+	font-size: 24px;
+}
+
+.features_list {
+	font-size: 0;
+}
+
+.features_item {
+	display: inline-block;
+	vertical-align: top;
+	margin:0;
+	font-size: 16px;
+	width: 540px;
+	margin-right: 26px;
+	padding: 20px 5px 5px 58px;
+}
+
+.features_item:last-child {
+	margin-right: 0;
+}
+
+.news_section {
+	font-size: 0;
+}
+
+.news_item {
+	display: inline-block;
+	vertical-align: top;
+	font-size: 16px;
+	width: 560px;
+	height: 220px;
+	border-radius: 15px;
+	margin-right: 26px;
+}
+
+.news_item:last-child {
+	margin-right: 0;
+}
+
+.news {
+	background: url(../img/strawberry_back.png) 0 0;
+}
+
+.subscribe-border {
+	background: #fff url(../img/post_pattern.png);
+}
+
+.subscribe {
+	background: #fff;
+	border-radius: 15px;
+	height: 210px;
+	width: 550px;
+	margin: auto;
+}
+
+.map {
+	background: url(../img/map.png) 0 0;
+	height: 430px;
+}
+
+.contacts {
+	padding:30px;
+	background-color: #fff;
+	border-radius: 15px;
+	float: right;
+	width: 303px;
+	height: 306px;
+}
+
+.feedback_form {
+	display: none;
+	/*как отобразить по нажатию кнопки?*/
+}
+
+.filter_settings {
+	width: 880px;
+	font-size: 0;
+	color: #fff;
+}
+
+.filter_settings-item {
+	display: inline-block;
+	font-size: 14px;
+	margin-right: 15px;
+}
+
+.paginator {
+	float: right;}
+
+.paginator_list {
+	font-size: 0;
+}
+
+.paginator_item {
+	font-size: 16px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 15px;
+}
+
+.paginator_item:last-child {
+	margin-right: 0;
+} 
+
+
 .footer {
 	height:100px;
+	border-top:1px solid #adbab1;
 	}
+
+.social {
+	float: left;
+	width: 30%;
+}
 
 .social_item {
 	display: inline-block;
+	vertical-align: middle;
+}
+
+.social_item-link {
+	display: inline-block;
+	height: 38px;
+	width: 38px;
+	border-radius: 50%;
+}
+
+.twitter {
+	background: url(../img/twitter.png) 0 0 no-repeat;
+}
+
+.instagram {
+	background: url(../img/insta.png) 0 0 no-repeat;
+}
+
+.facebook {
+	background: url(../img/fb.png) 0 0 no-repeat;
+}
+
+.vk {
+		background: url(../img/vk.png) 0 0 no-repeat;
+}
+
+.about {
+	margin:0 auto;
+	font-size: 0;
+}
+
+.about_list {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 13px;
+	margin-right: 25px;
+}
+
+.copyright {
+	float: right;
+}
+
+.copyright p {
+	font-size: 12px;
 }
