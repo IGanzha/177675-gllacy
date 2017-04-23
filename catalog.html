@@ -52,6 +52,7 @@
 								<a href="#" class="user_block-link search"> Поиск</a>
 								<div class="search_block">
 									<form action="#">
+										<!-- Рассказал на главнйо странице как это сделать -->
 										<label for="search_input" class="search_label"> Что ищем?
 										<!-- как label поднять вверх input'a? -->
 											<input type="text" name="search_text" placeholder="Что ищем?" id="search_input">
@@ -63,27 +64,19 @@
 							<a href="#" class="user_block-link enter"> Вход </a>
 							<div class="enter_block">
 								<form action="#" method="post">
-									<!-- Сделал список в форме. Так можно или лучше с использованием <br> сверстать? -->
-									<ul class="enter_block-list">
-										<li class="enter_block-item">
-											<!-- Чтобы Label вывести наверх потом, нужно дополнительно label в div обернуть? -->
-											<label for="user_email"> Электронная почта
-												<input type="email" id="user_email" placeholder="Электронная почта">
-											</label>
-										</li>
-										<li class="enter_block-item">
-											<label for="user_password"> Пароль
-												<input type="password" id="user_password" placeholder="Пароль">
-											</label>
-										</li>
-										<li class="enter_block-item">
-											<button type="submit">Войти</button>
+									<fieldset class="enter_field">
+										<input type="email" id="user_email" placeholder="Электронная почта">
+										<label for="user_email"> Электронная почта</label>
+										<input type="password" id="user_password" placeholder="Пароль">
+										<label for="user_password"> Пароль </label>
+										<div class="enter_submit">
+											<button type="submit" class="btn">Войти</button>
 											<div class="enter_links">
 												<a href="#"> Забыли пароль?</a>
 												<a href="#"> Новая регистрация</a>
 											</div>
-										</li>
-									</ul>
+										</div>
+									</fieldset>
 								</form>
 							</div> 	
 						</li>
@@ -93,11 +86,12 @@
 								<table class="cart_preview-table">
 									<tr>
 										<td class="preview_delete-col">
-											<button value="Удалить"></button>
+											<button type="submit" value="Удалить"> Удалить </button><!-- У тега button атрибут value, указывает, на то что будет отправлено на сервер. Необходимо указать текст внутри самой кнопки. Кнопки дописать атрибут type. Если его нет, то он равен submit -->
+											<!-- (Вопрос) В итоге type=submit кнопке ставлю?  -->
 										</td>
 										<td class="preview_pic">
 											<div class="preview_block-pic">
-												<img src="#" alt="" class="preview_pic">
+												<img src="img/products/1.png" alt="Пломбир с апельсиновым джемом" class="preview_pic" width="35px" height="35px">
 											</div>
 										</td>
 										<td class="preview_product-name">
@@ -112,11 +106,11 @@
 									</tr>
 									<tr>
 										<td class="preview_delete-col">
-											<button value="Удалить"></button>
+											<button type="submit" value="Удалить"> Удалить </button>
 										</td>
 										<td class="preview_pic">
 											<div class="preview_block-pic">
-												<img src="#" alt="" class="preview_pic">
+												<img src="img/products/2.png" alt="Клубничный пломбир с присыпкой" class="preview_pic" width="35px" height="35px">
 											</div>
 										</td>
 										<td class="preview_product-name">
@@ -150,19 +144,19 @@
 		</header>
 
 		<main class="main clearfix">
-			<div class="breadcrumbs">
-				<ul class="breadcrubs_list">
-					<li class="breadcrubs_item">
-						<a href="index.html" class="breadcrunbs_item-link"> Главная</a>
-					</li>
-					<li class="breadcrubs_item">
-						<a href="№" class="breadcrunbs_item-link"> Каталог</a>
-					</li>
-					<li class="breadcrubs_item"> 
-						Сливочное	
-					</li>
-				</ul>
-			</div>
+			
+			<ul class="breadcrubs">
+				<li class="breadcrubs_item">
+					<a href="index.html" class="breadcrunbs_item-link"> Главная</a>
+				</li>
+				<li class="breadcrubs_item">
+					<a href="№" class="breadcrunbs_item-link"> Каталог</a>
+				</li>
+				<li class="breadcrubs_item"> 
+					Сливочное	
+				</li>
+			</ul>
+
 
 			<h1> Сливочное мороженое</h1>
 
@@ -170,8 +164,7 @@
 				<form action="#">
 					<div class="filter_settings-item">
 						<p>Сортировка:</p>
-						<!-- Это выпадающий список <select>, а не список -->
-						<div class="filter_settings-item-options filter_settings-sort">
+						<div class="filter_settings-options filter_settings-sort">
 							<select name="sort" id="">
 								<option value="popular"> по популярности</option>
 								<option value="cheap_first"> сначала недорогие</option>
@@ -183,17 +176,16 @@
 
 					<div class="filter_settings-item">
 						<p>Цена: 100 руб. - 500 руб.</p>
-						<div class="filter_settings-item-options filter_settings-price">
+						<div class="filter_settings-options filter_settings-price">
 							<input type="range" step="50" min="0" max="1000">
 						</div>
 					</div>
 
 					<div class="filter_settings-item filter_fat">
 						<p> Жирность:</p>
-						<div class="filter_settings-item-options filter_settings-fat">
+						<div class="filter_settings-options filter_settings-fat">
 							<input type="radio" id="zero-fat" name="fat" value="zero"> 
 							<label for="zero-fat"> 0% </label>
-							<!-- нужно input и label как-то объединить/обернуть в один элемент? -->
 							
 							<input type="radio" id="ten-fat" name="fat" value="ten">
 							<label for="ten-fat"> 10% </label>
@@ -208,7 +200,7 @@
 
 					<div class="filter_settings-item"> 
 						<p>Наполнители:</p>
-						<div class="filter_settings-item-options filter_settings_fillers">
+						<div class="filter_settings-options filter_settings_fillers">
 							<input type="checkbox" id="shoko-filler"> 
 							<label for="shoko-filler">шоколадные</label>
 							
@@ -234,180 +226,178 @@
 		
 			<section class="products">
 				<ul class="products_list">
-
 					<li class="products_list-item">
 						<a href="#" class="product_item_link">
-							<img src="img/Catalog/1.png" alt="Сливочное с апельсиновым джемом" class="product_pic">
+							<img src="img/products/1.png" alt="Сливочное с апельсиновым джемом" class="product_pic">
 							<b class="price"> Цена</b>
 						</a>
-						<p> <a href="#" class="hits_name-link">Сливочное с апельсиновым джемом и цитрусовой стружкой</a></p>
-						<a href="#" class="products-QuickView btn"> Быстрый просмотр</a>
+						<p> <a href="#" class="products_name-link">Сливочное с апельсиновым джемом и цитрусовой стружкой</a></p>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 					
 					<li class="products_list-item">
 						<a href="#" class="product_item_link">
-							<img src="img/Catalog/2.png" alt="Сливочно-кофейное с кусочками шоколада" class="product_pic">
+							<img src="img/products/2.png" alt="Сливочно-кофейное с кусочками шоколада" class="product_pic">
 							<b class="price"> Цена</b>
 						</a>
-						<p> <a href="#" class="hits_name-link">Сливочно-кофейное с кусочками шоколада</a></p>
-						<a href="#" class="products-QuickView btn"> Быстрый просмотр</a>
+						<p> <a href="#" class="products_name-link">Сливочно-кофейное с кусочками шоколада</a></p>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 
 					<li class="products_list-item">
 						<a href="#" class="product_item_link">
-							<img src="img/Catalog/3.png" alt="Сливочно-клубничное с присыпкой из белого шоколада" class="product_pic">
+							<img src="img/products/3.png" alt="Сливочно-клубничное с присыпкой из белого шоколада" class="product_pic">
 							<b class="price"> Цена</b>
 						</a>
-						<p> <a href="#" class="hits_name-link">Сливочно-клубничное с присыпкой из белого шоколада</a></p>
-						<a href="#" class="products-QuickView btn"> Быстрый просмотр</a>
+						<p> <a href="#" class="products_name-link">Сливочно-клубничное с присыпкой из белого шоколада</a></p>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 
 					<li class="products_list-item">
 						<a href="#" class="product_item_link">
-							<img src="img/Catalog/4.png" alt="Сливочное крем-брюле с карамельной подливкой" class="product_pic">
+							<img src="img/products/4.png" alt="Сливочное крем-брюле с карамельной подливкой" class="product_pic">
 							<b class="price"> Цена</b>
 						</a>
-						<p> <a href="#" class="hits_name-link">Сливочное крем-брюле с карамельной подливкой</a></p>
-						<a href="#" class="products-QuickView btn"> Быстрый просмотр</a>
+						<p> <a href="#" class="products_name-link">Сливочное крем-брюле с карамельной подливкой</a></p>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 
 					<li class="products_list-item">
 						<a href="#" class="product_item_link">
-							<img src="img/Catalog/5.png" alt="Сливочное с брусничным джемом" class="product_pic">
+							<img src="img/products/5.png" alt="Сливочное с брусничным джемом" class="product_pic">
 							<b class="price"> Цена</b>
 						</a>
-						<p> <a href="#" class="hits_name-link">Сливочное с брусничным джемом</a></p>
-						<a href="#" class="products-QuickView btn"> Быстрый просмотр</a>
+						<p> <a href="#" class="products_name-link">Сливочное с брусничным джемом</a></p>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 
 					<li class="products_list-item">
 						<a href="#" class="product_item_link">
-							<img src="img/Catalog/6.png" alt="Сливочно-черничное с цельными ягодами черники " class="product_pic">
+							<img src="img/products/6.png" alt="Сливочно-черничное с цельными ягодами черники " class="product_pic">
 							<b class="price"> Цена</b>
 						</a>
-						<p> <a href="#" class="hits_name-link">Сливочно-черничное с цельными ягодами черники </a></p>
-						<a href="#" class="products-QuickView btn"> Быстрый просмотр</a>
+						<p> <a href="#" class="products_name-link">Сливочно-черничное с цельными ягодами черники </a></p>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 
 					<li class="products_list-item">
 						<a href="#" class="product_item_link">
-							<img src="img/Catalog/7.png" alt="Сливочно-лимонное с карамельной присыпкой" class="product_pic">
+							<img src="img/products/7.png" alt="Сливочно-лимонное с карамельной присыпкой" class="product_pic">
 							<b class="price"> Цена</b>
 						</a>
-						<p> <a href="#" class="hits_name-link">Сливочно-лимонное с карамельной присыпкой</a></p>
-						<a href="#" class="products-QuickView btn"> Быстрый просмотр</a>
+						<p> <a href="#" class="products_name-link">Сливочно-лимонное с карамельной присыпкой</a></p>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 
 					<li class="products_list-item">
 						<a href="#" class="product_item_link">
-							<img src="img/Catalog/8.png" alt="Сливочное с шоколадной стружкой" class="product_pic">
+							<img src="img/products/8.png" alt="Сливочное с шоколадной стружкой" class="product_pic">
 							<b class="price"> Цена</b>
 						</a>
-						<p> <a href="#" class="hits_name-link">Сливочное с шоколадной стружкой</a></p>
-						<a href="#" class="products-QuickView btn"> Быстрый просмотр</a>
+						<p> <a href="#" class="products_name-link">Сливочное с шоколадной стружкой</a></p>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 
 					<li class="products_list-item">
 						<a href="#" class="product_item_link">
-							<img src="img/Catalog/9.png" alt="Сливочно-ванильное с кусочками шоколада" class="product_pic">
+							<img src="img/products/9.png" alt="Сливочно-ванильное с кусочками шоколада" class="product_pic">
 							<b class="price"> Цена</b>
 						</a>
-						<p> <a href="#" class="hits_name-link">Сливочно-ванильное с кусочками шоколада</a></p>
-						<a href="#" class="products-QuickView btn"> Быстрый просмотр</a>
+						<p> <a href="#" class="products_name-link">Сливочно-ванильное с кусочками шоколада</a></p>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 
 					<li class="products_list-item">
 						<a href="#" class="product_item_link">
-							<img src="img/Catalog/10.png" alt="Сливочноe с ментоловым сиропом" class="product_pic">
+							<img src="img/products/10.png" alt="Сливочноe с ментоловым сиропом" class="product_pic">
 							<b class="price"> Цена</b>
 						</a>
-						<p> <a href="#" class="hits_name-link">Сливочноe с ментоловым сиропом</a></p>
-						<a href="#" class="products-QuickView btn"> Быстрый просмотр</a>
+						<p> <a href="#" class="products_name-link">Сливочноe с ментоловым сиропом</a></p>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 
 					<li class="products_list-item">
 						<a href="#" class="product_item_link">
-							<img src="img/Catalog/11.png" alt="Сливочное с кусочками черного шоколада" class="product_pic">
+							<img src="img/products/11.png" alt="Сливочное с кусочками черного шоколада" class="product_pic">
 							<b class="price"> Цена</b>
 						</a>
-						<p> <a href="#" class="hits_name-link">Сливочное с кусочками черного шоколада</a></p>
-						<a href="#" class="products-QuickView btn"> Быстрый просмотр</a>
+						<p> <a href="#" class="products_name-link">Сливочное с кусочками черного шоколада</a></p>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 
 					<li class="products_list-item">
 						<a href="#" class="product_item_link">
-							<img src="img/Catalog/12.png" alt="Сливочное с мятным сиропом" class="product_pic">
+							<img src="img/products/12.png" alt="Сливочное с мятным сиропом" class="product_pic">
 							<b class="price"> Цена</b>
 						</a>
-						<p> <a href="#" class="hits_name-link">Сливочное с мятным сиропом</a></p>
-						<a href="#" class="products-QuickView btn"> Быстрый просмотр</a>
+						<p> <a href="#" class="products_name-link">Сливочное с мятным сиропом</a></p>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>	
 				</ul>
 			</section>
 
-			<div class="paginator">
-				<ul class="paginator_list">
-					<li class="paginator_item">
-						<a href="#" class="paginator_link">Назад</a>
+			<ul class="paginator">
+				<li class="paginator_item">
+					<a href="#" class="paginator_link">Назад</a>
+				</li>
+				<li class="paginator_item">
+					<span class="paginator_link">1</span>
+				</li>
+				<li class="paginator_item">
+					<a href="#" class="paginator_link">2</a>
+				</li>
+				<li class="paginator_item">
+					<a href="#" class="paginator_link">3</a>
+				</li>
+				<li class="paginator_item">
+					<a href="#" class="paginator_link">4</a>
+				</li>
+				<li class="paginator_item">
+					<a href="#" class="paginator_link">5</a>
+				</li>
+				<li class="paginator_item">
+					<a href="#" class="paginator_link"> Вперед</a>
+				</li>
+			</ul>
+
+		</main>
+			<!-- Замечания по футеру такие же как на главной -->
+		<footer class="footer clearfix">
+				<ul class="social">
+					<li class="social_item">
+						<a href="#" class="social_item-link twitter"> Twitter </a><!-- Внутри должен быть текст. Если CSS не загрузится, будет пустой блок, который мы не видим -->
+						<!-- Ок, пока не знаю как это делать, поэтому специально текст удалил -->
+						<!-- Почему картинки нужно вырезать без обводки? Ее потом при помощи border сделаем?  -->
 					</li>
-					<li class="paginator_item">
-						<span class="paginator_link">1</span>
+					<li class="social_item">
+						<a href="#" class="social_item-link instagram"> Instagram </a>
 					</li>
-					<li class="paginator_item">
-						<a href="#" class="paginator_link">2</a>
+					<li class="social_item">
+						<a href="#" class="social_item-link facebook"> Facebook </a>
 					</li>
-					<li class="paginator_item">
-						<a href="#" class="paginator_link">3</a>
-					</li>
-					<li class="paginator_item">
-						<a href="#" class="paginator_link">4</a>
-					</li>
-					<li class="paginator_item">
-						<a href="#" class="paginator_link">5</a>
-					</li>
-					<li class="paginator_item">
-						<a href="#" class="paginator_link"> Вперед</a>
+					<li class="social_item">
+						<a href="#" class="social_item-link vk"> VK </a>
 					</li>
 				</ul>
-			</div>
-		</main>
 
-		<footer class="footer clearfix">
-				<div class="social">
-					<ul class="social_list">
-						<li class="social_item">
-							<a href="#" class="social_item-link twitter"> </a>
-						</li>
-						<li class="social_item">
-							<a href="#" class="social_item-link instagram"> 	</a>
-						</li>
-						<li class="social_item">
-							<a href="#" class="social_item-link facebook"> </a>
-						</li>
-						<li class="social_item">
-							<a href="#" class="social_item-link vk">  </a>
-						</li>
-					</ul>
-				</div>
-				<div class="about">
-					<ul class="about_list list1">
-						<li class="about_list-item about_heart">
-							<a href="#"> Для поставщиков</a>
-						</li>
-						<li class="about_list-item">
-							<a href="#"> О производстве</a>
-						</li>
-					</ul>
-					<ul class="about_list list2">	
-						<li class="about_list-item">
-							<a href="#"> Наши документы</a>
-						</li>
-						<li class="about_list-item">
-							<a href="#"> Экологические стандарты</a>
-						</li>
-					</ul>
-				</div>
+
+				<ul class="about_list">
+					<li class="about_list-item about_heart">
+						<a href="#"> Для поставщиков</a>
+					</li>
+					<li class="about_list-item">
+						<a href="#"> Наши документы</a>
+					</li>
+					<li class="about_list-item">
+						<a href="#"> О производстве</a>
+					</li>
+					<li class="about_list-item">
+						<a href="#"> Экологические стандарты</a>
+					</li>
+				</ul>
+
 				<div class="copyright">
+				<!-- почему уезжает вниз лого академии и текст? -->
 					<a href="https://up.htmlacademy.ru/htmlcss/17"> 
 						<img src="img/logo_academy.png" class="logo_html-academy" alt="HTML Academy">
 					</a>

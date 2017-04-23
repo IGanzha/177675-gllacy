@@ -15,15 +15,16 @@
   			<header class="main_header">
 				<div class="main_header-top clearfix">
 					<div class="logo_block">
-						<a class="logo_link"><img src="img/main_logo.png" width="155" height="65px" alt="Glaccy-shop logo"></a>
+						<a class="logo_link"><img src="img/main_logo.png" width="155px" height="65px" alt="Glaccy-shop logo"></a>
 					</div> 
 					<nav class="header_nav">
 						<ul class="header_list">
 							<li class="header_list-item">
-								<a href="#" class="header_list-link"> Каталог</a>									
+								<a href="catalog.html" class="header_list-link"> Каталог</a>									
 								<div class="catalog_nav">
 									<ul class="catalog_list">
-										<li class="catalog_list-item">
+										<li class="catalog_list-item emphasized"><!-- Это блоку надо дать еще класс, чтобы его застилизовать, он отличается от остальных -->
+										<!-- Я думал сделать через first-child, без добавления класса -->
 											<a href="#" class="catalog_list-link">Новинки</a>
 										</li>
 										<li class="catalog_list-item">
@@ -55,10 +56,21 @@
 								<a href="#" class="user_block-link search"> Поиск</a>
 								<div class="search_block">
 									<form action="#">
-										<label for="search_input" class="search_label"> Что ищем?
-										<!-- как label поднять вверх input'a? -->
+										<fieldset class="search_field">
 											<input type="text" name="search_text" placeholder="Что ищем?" id="search_input">
-										</label>
+											<label for="search_input" class="search_label"> Что ищем? </label>	
+										</fieldset>
+
+                    <!-- Оборачиваем не так
+                      <fieldset class="">
+                        <input type="text" id="">
+                        <label for="">...</label>
+                        Получается label будет висеть на absolute, внутри input и будет подниматься вверх
+                        Либо можно сделать по другому. Обернуто всё в label как у тебя. А после input идет span в, котором текст. И span также висит на абсолюте
+                        Любой из этих двух вариантов надо применить везде где у тебя идут поля ввода
+                      </fieldset>
+                     -->
+										
 									</form>
 								</div>
 							</li>
@@ -66,27 +78,19 @@
 								<a href="#" class="user_block-link enter"> Вход </a>
 								<div class="enter_block">
 									<form action="#" method="post">
-										<!-- Сделал список в форме. Так можно или лучше с использованием <br> сверстать? -->
-										<ul class="enter_block-list">
-											<li class="enter_block-item">
-												<!-- Чтобы Label вывести наверх потом, нужно дополнительно еще label в div обернуть? -->
-												<label for="user_email"> Электронная почта
-													<input type="email" id="user_email" placeholder="Электронная почта">
-												</label>
-											</li>
-											<li class="enter_block-item">
-												<label for="user_password"> Пароль
-													<input type="password" id="user_password" placeholder="Пароль">
-												</label>
-											</li>
-											<li class="enter_block-item">
-												<button type="submit">Войти</button>
+										<fieldset class="enter_field">
+											<input type="email" id="user_email" placeholder="Электронная почта">
+											<label for="user_email"> Электронная почта</label>
+											<input type="password" id="user_password" placeholder="Пароль">
+											<label for="user_password"> Пароль </label>
+											<div class="enter_submit">
+												<button type="submit" class="btn">Войти</button>
 												<div class="enter_links">
 													<a href="#"> Забыли пароль?</a>
 													<a href="#"> Новая регистрация</a>
 												</div>
-											</li>
-										</ul>
+											</div>
+										</fieldset>
 									</form>
 								</div> 	
 							</li>
@@ -104,7 +108,7 @@
 				</div>
 			</header>
 			
-			<seaction class="slider">
+			<section class="slider">
 				
 				<div class="slide" id="slide1">
 					<div class="slide-title">Крем брюле и пломбир с малиновым джемом</div>
@@ -122,12 +126,12 @@
 				</div>
 				
 				<div class="slider_controls">
-            		<label for="btn-1"></label>
-		            <label for="btn-2"></label>
-		            <label for="btn-3"></label>
+            		<label for="btn-1">Слайд №1</label><!-- Я бы тут добавил текст. Потом его через CSS можно скрыть. Слайд #1. Если вдруг CSS не загрузится, то мы ничего не увидим. А если укажем текст, то его увидим -->
+            		<!-- Ок, пока не уверен как текст при помощи CSS скрыть, а сам label оставить -->
+		            <label for="btn-2">Слайд №2</label>
+		            <label for="btn-3">Слайд №3</label>
           		</div>
-				
-			</seaction>
+			</section>
 			
 			<section class="banners">
 				<div class="banners_item raspberries">
@@ -145,37 +149,37 @@
 			<section class="products">
 				<ul class="products_list">
 					<li class="products_list-item">
-						<a href="#" class="products_item_link">
-							<img src="img/1.png" alt="Сливочное с апельсиновым джемом" class="hits_pic">
+						<a href="#" class="products_item-link">
+							<img src="img/products/1.png" alt="Сливочное с апельсиновым джемом" class="products_pic">
 							<b class="price"> Цена</b>
 						</a>
 						<p> <a href="#" class="products_name-link">Сливочное с апельсиновым джемом и цитрусовой стружкой</a></p>
-						<a href="#" class="products_list-link-QuickView btn"> Быстрый просмотр</a>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 
 					<li class="products_list-item">
 						<a href="#" class="products_item_link">
-							<img src="img/2.png" alt="Сливочно-кофейное с кусочками шоколада" class="hits_pic">
+							<img src="img/products/2.png" alt="Сливочно-кофейное с кусочками шоколада" class="products_pic">
 							<b class="price"> Цена</b>
 						</a>
 						<p> <a href="#" class="products_name-link">Сливочно-кофейное с кусочками шоколада</a></p>
-						<a href="#" class="products_list-link-QuickView btn"> Быстрый просмотр</a>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 					<li class="products_list-item">
 						<a href="#" class="products_item_link">
-							<img src="img/3.png" alt="Сливочно-клубничное с присыпкой из белого шоколада" class="hits_pic">
+							<img src="img/products/3.png" alt="Сливочно-клубничное с присыпкой из белого шоколада" class="products_pic">
 							<b class="price"> Цена</b>
 						</a>
 						<p> <a href="#" class="products_name-link">Сливочно-клубничное с присыпкой из белого шоколада</a></p>
-						<a href="#" class="products_list-link-QuickView btn"> Быстрый просмотр</a>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 					<li class="products_list-item">
 						<a href="#" class="products_item_link">
-							<img src="img/4.png" alt="Сливочное крем-брюле с карамельной подливкой" class="hits_pic">
+							<img src="img/products/4.png" alt="Сливочное крем-брюле с карамельной подливкой" class="products_pic">
 							<b class="price"> Цена</b>
 						</a>
 						<p> <a href="#" class="products_name-link">Сливочное крем-брюле с карамельной подливкой</a></p>
-						<a href="#" class="products_list-link-QuickView btn"> Быстрый просмотр</a>
+						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 				</ul>
 			</section>
@@ -207,12 +211,11 @@
 					<div class="subscribe">
 						<p> Подпишитесь на нашу сладкую рассылку и будете всегда в курсе всего самого вкусного, что у нас происходит. Обещаем не спамить и не слать всякой ненужной ерунды. Честно =) </p>
 						<form action="#" method="get">
-							<div class="subscribe-item">
-								<label for="subscribe_email"> 
-									<input type="email" placeholder="Электронная почта" id="subscribe_email">
-								</label>
-							</div>
-							<input type="submit" class="btn" value="Отправить">
+							<fieldset>
+								<input type="email" placeholder="Электронная почта" id="subscribe_email">
+								<label for="subscribe_email"> Электронная почта</label>
+								<input type="submit" class="btn" value="Отправить">
+							</fieldset>
 						</form>
 					</div>
 				</div>
@@ -222,37 +225,31 @@
 		<section class="map">
 			<div class="container">
 				<div class="contacts">
-					<p>Адрес Главного офиса <br><!-- Можно сделать без br, шириной блока можно регулировать -->
-					<!-- не очень понимаю. Там ведь блок намного шире текста, т.е. без br еще слова поместятся -->
-					и офлайн магазина <br>
-					<b>ул. Большая Конюшенная <br>
-					19/8, Санкт-Петербург</b></p>
-					<p>Для заказов по телефону: <br>
-					<b>8 812 450-25-25</b> <br>
-					(c 10 до 20 ежедневно) </p>
-					<a href="#" class="btn feedback"> Форма обратной связи</a>
-					<!-- почему кнопка не растягивается под содержимое текста, это ведь inline-block...? -->
-				</div>
+					<div class="contacts_block1">
+						<p>Адрес Главного офиса и офлайн магазина </p>
+						<p class="adress">ул. Большая Конюшенная 19/8, Санкт-Петербург</p>	
+					</div>
+					<div class="contacts_block2">
+						<p>Для заказов по телефону:</p>
+						<p> <b>8 812 450-25-25</b></p>
+						<p>(c 10 до 20 ежедневно)</p>	
+					</div>
+					<a href="#" class="btn"> Форма обратной связи</a>
+					<!-- почему кнопка не растягивается под содержимое текста? -->
+				</div>	
 				<div class="feedback_form">
 					<form action="#" method="post">
-						<h2>Мы обязательно Вам ответим!</h2>	
+						<p><b>Мы обязательно Вам ответим!</b></p>	
 						<button class="feedback_close"></button>
-						<div class="feedback_item">
-							<label for="feedback_username"> Как Вас зовут?
-								<input type="text" id="feedback_username" placeholder="Как Вас зовут?">
-							</label>
-						</div>
-						<div class="feedback_item">
-							<label for="feedback_email"> Ваша почта для ответа?
-								<input type="text" id="feedback_email" placeholder="Ваша почта для ответа?">
-							</label>
-						</div>
-							<div class="feedback_item">
-							<label for="feedback_text"> Напишите что-нибудь...
-								<textarea name="feedback_text" id="feedback_text" cols="30" rows="8">Напишите что-нибудь...</textarea>
-							</label>
-						</div>
-						<input type="submit" class="btn" value="Отправить">
+						<fieldset>
+							<input type="text" id="feedback_username" placeholder="Как Вас зовут?">
+							<label for="feedback_username"> Как Вас зовут? </label>
+							<input type="text" id="feedback_email" placeholder="Ваша почта для ответа?">
+							<label for="feedback_email"> Ваша почта для ответа?</label>
+							<textarea name="feedback_text" id="feedback_text" cols="30" rows="8">Напишите что-нибудь...</textarea>
+							<label for="feedback_text"> Напишите что-нибудь...</label>
+							<input type="submit" class="btn" value="Отправить">
+						</fieldset>
 					</form> 
 				</div>
 			</div>
@@ -260,42 +257,41 @@
 			
 		<div class="container">
 			<footer class="footer clearfix">
-				<div class="social">
-					<ul class="social_list">
-						<li class="social_item">
-							<a href="#" class="social_item-link twitter"> </a>
-						</li>
-						<li class="social_item">
-							<a href="#" class="social_item-link instagram"> 	</a>
-						</li>
-						<li class="social_item">
-							<a href="#" class="social_item-link facebook"> </a>
-						</li>
-						<li class="social_item">
-							<a href="#" class="social_item-link vk">  </a>
-						</li>
-					</ul>
-				</div>
-				<div class="about">
-					<ul class="about_list list1">
-						<li class="about_list-item about_heart">
-							<a href="#"> Для поставщиков</a>
-						</li>
-						<li class="about_list-item">
-							<a href="#"> О производстве</a>
-						</li>
-					</ul>
-					<ul class="about_list list2">	
-						<li class="about_list-item">
-							<a href="#"> Наши документы</a>
-						</li>
-						<li class="about_list-item">
-							<a href="#"> Экологические стандарты</a>
-						</li>
-					</ul>
-				</div>
+				<ul class="social">
+					<li class="social_item">
+						<a href="#" class="social_item-link twitter"> Twitter </a><!-- Внутри должен быть текст. Если CSS не загрузится, будет пустой блок, который мы не видим -->
+						<!-- Ок, пока не знаю как это делать, поэтому специально текст удалил -->
+						<!-- Почему картинки нужно вырезать без обводки? Ее потом при помощи border сделаем?  -->
+					</li>
+					<li class="social_item">
+						<a href="#" class="social_item-link instagram"> Instagram </a>
+					</li>
+					<li class="social_item">
+						<a href="#" class="social_item-link facebook"> Facebook </a>
+					</li>
+					<li class="social_item">
+						<a href="#" class="social_item-link vk"> VK </a>
+					</li>
+				</ul>
+
+
+				<ul class="about_list">
+					<li class="about_list-item about_heart">
+						<a href="#"> Для поставщиков</a>
+					</li>
+					<li class="about_list-item">
+						<a href="#"> Наши документы</a>
+					</li>
+					<li class="about_list-item">
+						<a href="#"> О производстве</a>
+					</li>	
+					<li class="about_list-item">
+						<a href="#"> Экологические стандарты</a>
+					</li>
+				</ul>
+
 				<div class="copyright">
-				<!-- почему уехжает вниз лого академии и текст? -->
+				<!-- почему уезжает вниз лого академии и текст? -->
 					<a href="https://up.htmlacademy.ru/htmlcss/17"> 
 						<img src="img/logo_academy.png" class="logo_html-academy" alt="HTML Academy">
 					</a>

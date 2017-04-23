@@ -1,3 +1,11 @@
+html {
+	box-sizing: border-box;
+}
+
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+
 body {
 	background-color: #849d8f;
 	font-family: "Roboto", "Arial", sans-serif;
@@ -10,14 +18,6 @@ body {
 body > input[type="radio"] {
   display: none;
 }
-
-* {
-	box-sizing: border-box;
-/*	margin: 0;
-	padding:0;*/
-}
-
-
 
 ul {
 	list-style: none;
@@ -35,7 +35,7 @@ ul {
 	height: 46px;
 	color:#fff;
 	text-decoration: none;
-	padding:12px 25px;
+	padding:12px 20px;
 	text-align: center;
 
 
@@ -56,9 +56,9 @@ ul {
 }
 
 .btn:active {
-	background:    -moz-linear-gradient(top, #d84732 0%, #e1613e 100%);
+	background: -moz-linear-gradient(top, #d84732 0%, #e1613e 100%);
 	background: -webkit-linear-gradient(top, #d84732 0%, #e1613e 100%);
-	background:         linear-gradient(to bottom, #d84732 0%, #e1613e 100%);
+	background: linear-gradient(to bottom, #d84732 0%, #e1613e 100%);
 	box-shadow: inset 0 2px 2px rgba(172, 16, 0, 1);
 }
 
@@ -200,7 +200,7 @@ ul {
 
 .slider {
 	position: relative;
-	padding-top: 350px;
+	padding-top: 250px;
 	text-align: center;
 	color: #ffffff;
 }
@@ -212,7 +212,6 @@ ul {
 .slide-title {
 	width: 700px;
 	margin: 0 auto;
-	margin-top: 280px;
 	margin-bottom: 30px;
 	font-weight: 800;
 	font-size: 60px;
@@ -220,12 +219,12 @@ ul {
 
 .slide-btn {
 	display: inline-block;
+	vertical-align: middle;
 	padding: 12px 45px;
 	height: 65px;
 	font-weight: 600;
 	font-size: 32px;
 	line-height: 44px;
-	vertical-align: middle;
 	color: #ffffff;
 
 }
@@ -236,13 +235,10 @@ ul {
 	left: 0;
 	z-index: 20;
 	font-size: 0;
-	width:75px;
 }
 
 .slider_controls label {
 	display: inline-block;
-	/*если не задать ширину slider_controls, то они не хотят в линию становиться. Почему, ведь slider_controls div ?*/
-	/*если выбрать 2 или 3 фон, а потом нажать на 1-й лэйбл, то все лэйблы съезжают вниз... не могу понять почему*/
 	width: 17px;
 	height: 17px;
 	margin-right: 8px;
@@ -264,7 +260,6 @@ ul {
 #btn-1:checked ~ .site_wrapper {
 	background-color: #849d8f;
 	background-image: url("../img/Background1.png");
-	/*если что-то выпадает за футер, то там цвет фона остается по умолчанию ... почему? нужно исправить?  */
 }
 
 #btn-2:checked ~ .site_wrapper {
@@ -283,9 +278,13 @@ ul {
 	background-color: #ffffff;
 }
 
-.banners_item {
+.banners {
 	font-size: 0;
-	/*не помогает обнуление размера шрифта, какие еще варианты есть? Или что я делаю не правильно? */
+	margin-top: 40px;
+}
+
+.banners_item {
+	font-size: 18px;
 	color:#fff;
 	padding: 25px 20px;
 	display: inline-block;
@@ -300,18 +299,16 @@ ul {
 }
 
 .raspberries {
-	background: url("../img/Малиновый фон.png") top left;
-	font-size: 18px;
+	background: url("../img/raspberry_back.jpg") top left;
 }
 
 .shoko {
-	background: url("../img/Шоколадный фон.png") top left;
-	font-size: 18px;
+	background: url("../img/shoko_back.jpg") top left;
 }
 
 .products_list {
 	font-size: 0;
-	margin: 0;
+	margin: 40px 0;
 	padding:0;
 }
 
@@ -321,6 +318,7 @@ ul {
 	vertical-align: top;
 	width: 266.4px;
 	margin-right: 26px;
+	margin-bottom: 35px;
 }
 
 .products_list-item:last-child,
@@ -330,22 +328,27 @@ ul {
 	margin-right: 0;
 }
 
-.product_pic {
-	border-radius: 50%;
-}
+
+/* (ВОПРОС) Если картинки продуктов в jpg вырезаны, т.е. квадратные, то как закруглить их? поместить в div и задать ему border-radius?*/
+
 
 .features {
-	background: url(../img/Waffles_pattern.png) top left;
-	padding: 27px 20px;
+	background: url(../img/Waffles_back.jpg) top left;
+	padding: 27px 0;
+	margin-bottom: 40px;
 	border-radius: 15px;
 }
 
 .features h3 {
 	font-size: 24px;
+	width: 1100px;
+	margin: 0 auto;
 }
 
 .features_list {
 	font-size: 0;
+	padding:0;
+	margin: 0;
 }
 
 .features_item {
@@ -353,17 +356,19 @@ ul {
 	vertical-align: top;
 	margin:0;
 	font-size: 16px;
-	width: 540px;
+	width: 560px;
 	margin-right: 26px;
-	padding: 20px 5px 5px 58px;
+	padding: 20px 0px 0px 60px;
 }
 
+.features_item:nth-child(2),
 .features_item:last-child {
 	margin-right: 0;
 }
 
 .news_section {
 	font-size: 0;
+	margin-bottom: 40px;
 }
 
 .news_item {
@@ -381,7 +386,7 @@ ul {
 }
 
 .news {
-	background: url(../img/strawberry_back.png) 0 0;
+	background: url(../img/strawberry_back.jpg) 0 0;
 }
 
 .subscribe-border {
@@ -397,17 +402,22 @@ ul {
 }
 
 .map {
-	background: url(../img/map.png) 0 0;
+	width: 1200px;
+	background: url(../img/map.jpg) 0 center no-repeat;
 	height: 430px;
+	margin:0 auto;
+	padding:0;
 }
 
 .contacts {
+	margin-top: 60px;
 	padding:30px;
 	background-color: #fff;
 	border-radius: 15px;
 	float: right;
-	width: 303px;
+	width: 300px;
 	height: 306px;
+	font-size: 14px;
 }
 
 .feedback_form {
@@ -484,12 +494,14 @@ ul {
 		background: url(../img/vk.png) 0 0 no-repeat;
 }
 
-.about {
+/*.about {
 	margin:0 auto;
 	font-size: 0;
-}
+}*/
 
 .about_list {
+	width:350px;
+	margin:auto;
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 13px;
