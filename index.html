@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>HTML Academy: Глейси</title>
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </head>
@@ -23,8 +24,7 @@
 								<a href="catalog.html" class="header_list-link"> Каталог</a>									
 								<div class="catalog_nav">
 									<ul class="catalog_list">
-										<li class="catalog_list-item emphasized"><!-- Это блоку надо дать еще класс, чтобы его застилизовать, он отличается от остальных -->
-										<!-- Я думал сделать через first-child, без добавления класса -->
+										<li class="catalog_list-item emphasized">
 											<a href="#" class="catalog_list-link">Новинки</a>
 										</li>
 										<li class="catalog_list-item">
@@ -60,17 +60,6 @@
 											<input type="text" name="search_text" placeholder="Что ищем?" id="search_input">
 											<label for="search_input" class="search_label"> Что ищем? </label>	
 										</fieldset>
-
-                    <!-- Оборачиваем не так
-                      <fieldset class="">
-                        <input type="text" id="">
-                        <label for="">...</label>
-                        Получается label будет висеть на absolute, внутри input и будет подниматься вверх
-                        Либо можно сделать по другому. Обернуто всё в label как у тебя. А после input идет span в, котором текст. И span также висит на абсолюте
-                        Любой из этих двух вариантов надо применить везде где у тебя идут поля ввода
-                      </fieldset>
-                     -->
-										
 									</form>
 								</div>
 							</li>
@@ -81,16 +70,18 @@
 										<fieldset class="enter_field">
 											<input type="email" id="user_email" placeholder="Электронная почта">
 											<label for="user_email"> Электронная почта</label>
+										</fieldset>
+										<fieldset>
 											<input type="password" id="user_password" placeholder="Пароль">
 											<label for="user_password"> Пароль </label>
-											<div class="enter_submit">
-												<button type="submit" class="btn">Войти</button>
-												<div class="enter_links">
-													<a href="#"> Забыли пароль?</a>
-													<a href="#"> Новая регистрация</a>
-												</div>
-											</div>
 										</fieldset>
+										<div class="enter_submit">
+											<button type="submit" class="btn">Войти</button>
+											<div class="enter_links">
+												<a href="#"> Забыли пароль?</a>
+												<a href="#"> Новая регистрация</a>
+											</div>
+										</div>
 									</form>
 								</div> 	
 							</li>
@@ -126,8 +117,7 @@
 				</div>
 				
 				<div class="slider_controls">
-            		<label for="btn-1">Слайд №1</label><!-- Я бы тут добавил текст. Потом его через CSS можно скрыть. Слайд #1. Если вдруг CSS не загрузится, то мы ничего не увидим. А если укажем текст, то его увидим -->
-            		<!-- Ок, пока не уверен как текст при помощи CSS скрыть, а сам label оставить -->
+            		<label for="btn-1">Слайд №1</label>
 		            <label for="btn-2">Слайд №2</label>
 		            <label for="btn-3">Слайд №3</label>
           		</div>
@@ -135,13 +125,13 @@
 			
 			<section class="banners">
 				<div class="banners_item raspberries">
-					<h3> Малинка даром!</h3>
-					<p>При покупке 2 кг любого фруктового мороженого, добавим в ваш заказ банку малинового варенья бесплатно</p>
+					<h2> Малинка даром!</h2>
+					<p>При покупке 2 кг любого фруктового мороженого, добавим в ваш заказ банку малинового варенья бесплатно.</p>
 					<a href="#" class="btn btn_banners"> Хочу варенье!</a> 	
 				</div>
 				<div class="banners_item shoko">
-					<h3> Шоколадки даром!</h3>
-					<p>При покупке 2 кг пломбира, добавим в ваш заказ упаковку вкуснейшей шоколадной присыпки совершенно бесплатно</p>
+					<h2> Шоколадки даром!</h2>
+					<p>При покупке 2 кг пломбира, добавим в ваш заказ упаковку вкуснейшей шоколадной присыпки совершенно бесплатно.</p>
 					<a href="#" class="btn btn_banners"> Хочу шоколадки!</a> 	
 				</div>
 			</section>
@@ -149,33 +139,36 @@
 			<section class="products">
 				<ul class="products_list">
 					<li class="products_list-item">
-						<a href="#" class="products_item-link">
-							<img src="img/products/1.png" alt="Сливочное с апельсиновым джемом" class="products_pic">
+						<a href="#" class="products_item-link top">
+							<img src="img/products/1.png" alt="Сливочное с апельсиновым джемом" class="products_pic" width="267" height="267">
 							<b class="price"> Цена</b>
+						
+						<!-- (ВОПРОС) цену нужно вынести в отдельную ссылку, чтобы ее было видно? т.к. у ссылки, в которую цена обернута overflow hidden?-->
+						
 						</a>
 						<p> <a href="#" class="products_name-link">Сливочное с апельсиновым джемом и цитрусовой стружкой</a></p>
 						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 
 					<li class="products_list-item">
-						<a href="#" class="products_item_link">
-							<img src="img/products/2.png" alt="Сливочно-кофейное с кусочками шоколада" class="products_pic">
+						<a href="#" class="products_item-link top">
+							<img src="img/products/2.png" alt="Сливочно-кофейное с кусочками шоколада" class="products_pic" width="267" height="267">
 							<b class="price"> Цена</b>
 						</a>
 						<p> <a href="#" class="products_name-link">Сливочно-кофейное с кусочками шоколада</a></p>
 						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 					<li class="products_list-item">
-						<a href="#" class="products_item_link">
-							<img src="img/products/3.png" alt="Сливочно-клубничное с присыпкой из белого шоколада" class="products_pic">
+						<a href="#" class="products_item-link top">
+							<img src="img/products/3.png" alt="Сливочно-клубничное с присыпкой из белого шоколада" class="products_pic" width="267" height="267">
 							<b class="price"> Цена</b>
 						</a>
 						<p> <a href="#" class="products_name-link">Сливочно-клубничное с присыпкой из белого шоколада</a></p>
 						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 					<li class="products_list-item">
-						<a href="#" class="products_item_link">
-							<img src="img/products/4.png" alt="Сливочное крем-брюле с карамельной подливкой" class="products_pic">
+						<a href="#" class="products_item-link top">
+							<img src="img/products/4.png" alt="Сливочное крем-брюле с карамельной подливкой" class="products_pic" width="267" height="267">
 							<b class="price"> Цена</b>
 						</a>
 						<p> <a href="#" class="products_name-link">Сливочное крем-брюле с карамельной подливкой</a></p>
@@ -185,7 +178,7 @@
 			</section>
 
 			<section class="features">
-				<h3> Магазин Глейси  - это онлайн и офлайн магазин по продаже мороженого собственного производства на развес</h3>
+				<h2> Магазин Глейси  - это онлайн и офлайн магазин по продаже мороженого собственного производства на развес</h2>
 				<ul class="features_list">
 					<li class="features_item">
 						<span class="features_item-text"> Все наше мороженое изготавливается на собственном производстве, с использованием современного оборудования и проверенных временем технологий.</span>
@@ -214,8 +207,8 @@
 							<fieldset>
 								<input type="email" placeholder="Электронная почта" id="subscribe_email">
 								<label for="subscribe_email"> Электронная почта</label>
-								<input type="submit" class="btn" value="Отправить">
 							</fieldset>
+							<input type="submit" class="btn" value="Отправить">
 						</form>
 					</div>
 				</div>
@@ -227,15 +220,14 @@
 				<div class="contacts">
 					<div class="contacts_block1">
 						<p>Адрес Главного офиса и офлайн магазина </p>
-						<p class="adress">ул. Большая Конюшенная 19/8, Санкт-Петербург</p>	
+						<p class="bold">ул. Большая Конюшенная 19/8, Санкт-Петербург</p>	
 					</div>
 					<div class="contacts_block2">
 						<p>Для заказов по телефону:</p>
-						<p> <b>8 812 450-25-25</b></p>
+						<p class="bold">8 812 450-25-25</p>
 						<p>(c 10 до 20 ежедневно)</p>	
 					</div>
 					<a href="#" class="btn"> Форма обратной связи</a>
-					<!-- почему кнопка не растягивается под содержимое текста? -->
 				</div>	
 				<div class="feedback_form">
 					<form action="#" method="post">
@@ -244,12 +236,16 @@
 						<fieldset>
 							<input type="text" id="feedback_username" placeholder="Как Вас зовут?">
 							<label for="feedback_username"> Как Вас зовут? </label>
+						</fieldset>
+						<fieldset>
 							<input type="text" id="feedback_email" placeholder="Ваша почта для ответа?">
 							<label for="feedback_email"> Ваша почта для ответа?</label>
+						</fieldset>
+						<fieldset>
 							<textarea name="feedback_text" id="feedback_text" cols="30" rows="8">Напишите что-нибудь...</textarea>
 							<label for="feedback_text"> Напишите что-нибудь...</label>
-							<input type="submit" class="btn" value="Отправить">
 						</fieldset>
+						<input type="submit" class="btn" value="Отправить">
 					</form> 
 				</div>
 			</div>
@@ -259,9 +255,7 @@
 			<footer class="footer clearfix">
 				<ul class="social">
 					<li class="social_item">
-						<a href="#" class="social_item-link twitter"> Twitter </a><!-- Внутри должен быть текст. Если CSS не загрузится, будет пустой блок, который мы не видим -->
-						<!-- Ок, пока не знаю как это делать, поэтому специально текст удалил -->
-						<!-- Почему картинки нужно вырезать без обводки? Ее потом при помощи border сделаем?  -->
+						<a href="#" class="social_item-link twitter"> Twitter </a>
 					</li>
 					<li class="social_item">
 						<a href="#" class="social_item-link instagram"> Instagram </a>
@@ -291,7 +285,6 @@
 				</ul>
 
 				<div class="copyright">
-				<!-- почему уезжает вниз лого академии и текст? -->
 					<a href="https://up.htmlacademy.ru/htmlcss/17"> 
 						<img src="img/logo_academy.png" class="logo_html-academy" alt="HTML Academy">
 					</a>

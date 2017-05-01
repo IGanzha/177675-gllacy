@@ -19,9 +19,6 @@ body > input[type="radio"] {
   display: none;
 }
 
-ul {
-	list-style: none;
-}
 
 .clearfix:after {
 	display: table;
@@ -30,13 +27,15 @@ ul {
 }
 .btn {
 	font-size: 18px;
-	font-weight: 600;
+	line-height: 24px;
+	font-weight: 700;
 	display: inline-block;
-	height: 46px;
+	vertical-align: middle;
 	color:#fff;
 	text-decoration: none;
-	padding:12px 20px;
+	padding:12px 16px;
 	text-align: center;
+	outline: none;
 
 
 	text-shadow: 0 2px 5px rgba(160, 32, 11, 0.76);
@@ -86,21 +85,33 @@ ul {
 .container {
 	width:1146px;
 	margin:0 auto;
+	padding:0;
+}
+
+.main_header {
 	padding:10px 0;
 }
 
+.main_header-top{
+	vertical-align: middle;
+}
 
 .logo_block {
 	float: left;
+	width: 155px;
 }
 
 .header_nav {
 	float: left;
 	max-width: 50%;
+	padding-top:13px;
+	padding-left: 5px;
 }
 
 .user_block {
 	float: right;
+	width: 267px;
+	padding-top:13px;
 }
 
 .catalog_list {
@@ -108,43 +119,156 @@ ul {
 	margin:0;
 }
 
-.header-list {
+.header_list {
+	list-style: none;
 	padding: 0;
 	margin:0;
+	font-size: 0;
 }
 
 .header_list-item {
 	display: inline-block;
 	vertical-align: middle;
-	margin-right: 30px;
 	position: relative;
+	font-size: 16px;
 }
 
 .header_list-item:last-child {
 	margin-right: 0;
 }
 
+.header_list-link {
+	display: inline-block;
+	font-size: 16px;
+	line-height: 18px;
+	font-weight: 700;
+	color: #fff;
+	padding:10px 15px;
+	border-radius: 19px;
+	/*как задать полупрозрачное подчеркивание ссылкам? через псевдокласс? */
+}
+
+.header_list-link:hover {
+	color: #353535;
+	background-color: #f6f6f3;
+	text-decoration: none;
+}
+
+.header_list-link:active {
+	box-shadow: inset 0 2px 2px 0;
+}
+
 .catalog_nav {
-	background-color: white;
+	
 	display: none;
 	position: absolute;
+	top: 37px;
 	width:144px;
-	z-index: 10;
+	z-index: 20;
+	
+}
+
+.catalog_list {
+	margin-top: 5px;
+	background-color: #f7f7f4;
+	font-size: 14px;
+	line-height: 16px;
+	list-style: none;
+	border-radius: 5px;
 }
 
 .header_list-item:hover .catalog_nav {
 	display: block;
 }
 
+
+.emphasized {
+	border-bottom: 1px solid #d1d1ce;
+	font-weight: 700;
+}
+
+.catalog_list-link {
+	display: block;
+	padding:11px 21px;
+	text-decoration: none;
+	color: #353535;
+}
+
+.catalog_list-link:hover {
+	background-color: #f3ddd7;
+} 
+
+.catalog_list-link:active {
+	background-color: #f6b5a5;
+} 
+
+.catalog_list:first-child a {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+/*Это ведь ссылка в первом потомке catalog_list? 
+почему эти свойства применяются ко всем ссылкам в catalog_list, а не только к первому потомку? 
+Как нужно написать селектор, чтобы скруглить углы только в первом и последнем пункте каталога?*/
+
+.catalog_list:last-child a {
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+
+}
+
+.user_block-list {
+	font-size: 0;
+	text-align: right;
+	list-style: none;
+	padding:0;
+	margin:0;
+}
+
 .user_block-item {
+
 	display: inline-block;
-	vertical-align: middle;
+	vertical-align: top;
 	position: relative;
 	margin-right:11px;
+	font-size: 14px;
+	line-height: 16px;
 }
 
 .user_block-item:last-child {
 	margin-right:0;
+}
+
+.user_block-link {
+	display: inline-block;
+	border-radius: 18px;
+	padding:8px;
+	background-color: rgba(254, 254, 254, 0.2);
+	color: #fff;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.user_block-link:hover {
+	color:black;
+	background-color: rgba(248, 247, 244, 1);
+}
+
+.search{
+	font-size: 0;
+	width: 32px;
+	height: 32px;
+	position: relative;
+}
+
+.search::before {
+	content: "";
+	position: absolute;
+	left:8px;
+	top:8px;
+	width: 16px;
+	height: 16px;
+	background: url("../img/sprite.png") 0 0 no-repeat;
+
 }
 
 .search_block {
@@ -155,6 +279,21 @@ ul {
 	position: absolute;
 
 	left: -309px;
+}
+
+.enter {
+	padding-left: 45px;
+	padding-right: 16px;
+}
+
+.enter::before {
+	content: "";
+	position: absolute;
+	left:16px;
+	top:5px;
+	width: 21px;
+	height: 21px;
+	background: url("../img/sprite.png") 0 0 no-repeat;
 }
 
 .enter_block {
@@ -172,6 +311,21 @@ ul {
 	display: block;
 }
 
+.cart {
+	padding-left: 45px;
+	width: 116px;
+	text-align: left;
+}
+
+.cart::before {
+	content: "";
+	position: absolute;
+	left: 16px;
+	top: 5px;
+	width: 22px;
+	height: 21px;
+	background: url("../img/sprite.png") 0 0 no-repeat;
+}
 
 .cart_preview {
 	background: #fff;
@@ -182,27 +336,74 @@ ul {
 	left:-420px;
 }
 
-
+.header_add-info {
+	margin-bottom: -30px;
+	padding:0;
+}
 
 .header_contacts {
 	float: right;
+	color:#fff;
 }
 
-.header_add-info {
-	margin-bottom: -30px;
+
+.header_contacts_schedule,
+.header_contacts_phone {
+	padding: 0;
+	margin: 0;
+	text-align: right;
 }
 
+.header_contacts_schedule {
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 700;
+	margin-bottom: 5px;
+}
+
+.header_contacts_phone {
+	font-size: 22px;
+	line-height: 24px;
+	font-weight: 700;
+}
+
+.breadcrumbs {
+	list-style: none;
+	font-size: 0;
+}
 
 .breadcrubs_item {
 	display: inline-block;
+	margin-right: 20px;
+	color: #fff;
+	font-size: 14px;
+	line-height: 16px;
+	
+}
+
+.breadcrunbs_item-link {
+	color: #fff;
+	font-size: 14px;
+	line-height: 16px;
+	position: relative;
+}
+
+.breadcrunbs_item-link::before {
+	content: "";
+	width:10px;
+	height: 10px;
+	top: 3px;
+	left: -15px;
+	background: url("../img/sprite.png") 0 0 no-repeat;
 }
 
 
 .slider {
 	position: relative;
-	padding-top: 250px;
+	padding-top: 285px;
 	text-align: center;
 	color: #ffffff;
+	margin-bottom: 40px;
 }
 
 .slide {
@@ -213,16 +414,17 @@ ul {
 	width: 700px;
 	margin: 0 auto;
 	margin-bottom: 30px;
-	font-weight: 800;
+	font-weight: 700;
 	font-size: 60px;
+	line-height: 60.35px;
 }
 
 .slide-btn {
 	display: inline-block;
 	vertical-align: middle;
 	padding: 12px 45px;
-	height: 65px;
-	font-weight: 600;
+	/*height: 65px;*/
+	font-weight: 700;
 	font-size: 32px;
 	line-height: 44px;
 	color: #ffffff;
@@ -280,13 +482,13 @@ ul {
 
 .banners {
 	font-size: 0;
-	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
 .banners_item {
 	font-size: 18px;
 	color:#fff;
-	padding: 25px 20px;
+	padding: 16px 16px;
 	display: inline-block;
 	vertical-align: top;
 	width: 560px;
@@ -298,6 +500,28 @@ ul {
 	margin-right: 0;
 }
 
+.banners_item h2 {
+	margin: 0;
+	padding:0;
+	font-size: 35px;
+	line-height: 41px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+.banners_item p {
+	font-size: 18px;
+	line-height: 22px;
+	font-weight: 700;
+	margin: 0;
+	padding:0;
+	margin-bottom: 45px;
+}
+
+.btn_banners {
+	float: right;
+}
+
 .raspberries {
 	background: url("../img/raspberry_back.jpg") top left;
 }
@@ -306,49 +530,107 @@ ul {
 	background: url("../img/shoko_back.jpg") top left;
 }
 
+.products {
+	padding-bottom: 40px;
+	margin-left: -13px;
+	margin-right: -13px;
+
+}
+
 .products_list {
 	font-size: 0;
-	margin: 40px 0;
 	padding:0;
+	list-style: none;
 }
 
 .products_list-item {
-	font-size:14px;
+	font-size:16px;
 	display: inline-block;
 	vertical-align: top;
-	width: 266.4px;
-	margin-right: 26px;
-	margin-bottom: 35px;
+	text-align: center;
+	width: 293px;
+	min-height: 323px;
+/*	margin-right: 26px;
+	margin-bottom: 35px;*/
+	position: relative;
+	padding:6px 13px 17px;
+	margin-bottom: -43px;
+
 }
 
-.products_list-item:last-child,
-.products_list-item:nth-child(4),
-.products_list-item:nth-child(8)
- {
-	margin-right: 0;
+.products_list-item:hover {
+  background: rgba(248,247,244,.3);
+  box-shadow: 0 20px 20px rgba(0,0,0,.08);
+  z-index: 20;
+}
+
+.products_item-link {
+	display: block;
+	border-radius: 50%;
+	width: 267px;
+	height: 267px;
+	overflow: hidden;
+/*<!-- (ВОПРОС) цену нужно вынести в отдельную ссылку, чтобы ее было видно? т.к. у ссылки, в которую цена обернута overflow hidden?-->*/
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.top::before {
+	content: "";
+	position: absolute;
+	z-index: 25;
+	width: 60px;
+	height: 60px;
+	top: 0;
+	left:0;
+	background: transparent url("../img/sprite.png") 0 0 no-repeat;
+}
+
+.products_list-item:hover .products_link-quickview {
+	visibility: visible;
+}
+
+.products_list-item p {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.products_link-quickview {
+	visibility: hidden;
+	width: 201px;
+
 }
 
 
-/* (ВОПРОС) Если картинки продуктов в jpg вырезаны, т.е. квадратные, то как закруглить их? поместить в div и задать ему border-radius?*/
 
+.products_name-link {
+	color: #fff;
+	font-size: 16px;
+	line-height: 22px;
+	font-weight: 500;
+}
 
 .features {
 	background: url(../img/Waffles_back.jpg) top left;
-	padding: 27px 0;
+	padding: 27px 20px;
 	margin-bottom: 40px;
 	border-radius: 15px;
 }
 
-.features h3 {
+.features h2 {
 	font-size: 24px;
-	width: 1100px;
+	line-height: 30px;
+	color:#353535;
+	font-weight: 500;
 	margin: 0 auto;
+	margin-bottom: 5px;
 }
 
 .features_list {
 	font-size: 0;
 	padding:0;
 	margin: 0;
+	list-style: none;
 }
 
 .features_item {
@@ -356,14 +638,28 @@ ul {
 	vertical-align: top;
 	margin:0;
 	font-size: 16px;
-	width: 560px;
+	line-height: 22px;
+	color: #353535;
+	width: 540px;
 	margin-right: 26px;
-	padding: 20px 0px 0px 60px;
+	padding: 20px 0px 0px 55px;
+	position: relative;
 }
 
 .features_item:nth-child(2),
 .features_item:last-child {
 	margin-right: 0;
+}
+
+.features_item::before {
+	content: "";
+	position: absolute;
+	width: 47px;
+	height: 47px;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	background: url("../img/sprite.png") 0 0 no-repeat;
 }
 
 .news_section {
@@ -375,22 +671,44 @@ ul {
 	display: inline-block;
 	vertical-align: top;
 	font-size: 16px;
+	line-height: 22px;
+	color: #353535;
 	width: 560px;
-	height: 220px;
+	min-height: 220px;
 	border-radius: 15px;
 	margin-right: 26px;
+	padding:0;
 }
 
 .news_item:last-child {
 	margin-right: 0;
 }
 
+.recipes_link {
+	color: #353535;
+	font-size: 24px;
+	line-height: 30px;
+}
+
+
 .news {
 	background: url(../img/strawberry_back.jpg) 0 0;
+	padding:25px 20px;
+}
+
+.news p {
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.news h3 {
+	width: 300px;
+	margin: 0;
 }
 
 .subscribe-border {
 	background: #fff url(../img/post_pattern.png);
+	padding:5px;
 }
 
 .subscribe {
@@ -399,6 +717,14 @@ ul {
 	height: 210px;
 	width: 550px;
 	margin: auto;
+	padding: 30px 20px; 
+}
+
+.subscribe p {
+	margin: 0;
+	margin-bottom: 40px;
+	font-size: 16px;
+	line-height: 22px;
 }
 
 .map {
@@ -411,13 +737,40 @@ ul {
 
 .contacts {
 	margin-top: 60px;
-	padding:30px;
+	padding:30px 25px;
 	background-color: #fff;
 	border-radius: 15px;
 	float: right;
 	width: 300px;
-	height: 306px;
 	font-size: 14px;
+	line-height: 20px;
+	color: #353535;
+}
+
+.contacts_block1 {
+	margin-bottom:25px; 
+}
+
+.contacts_block1 p {
+	margin-top: 0;
+	margin-bottom: 7px;
+	width: 170px;
+}
+
+.contacts .bold {
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 700;
+	width: 230px;
+}
+
+.contacts_block2 {
+	margin-bottom: 25px;
+}
+
+.contacts_block2 p {
+	margin:0;
+	margin-bottom: 7px;
 }
 
 .feedback_form {
@@ -442,6 +795,7 @@ ul {
 
 .paginator_list {
 	font-size: 0;
+	list-style: none;
 }
 
 .paginator_item {
@@ -463,19 +817,38 @@ ul {
 
 .social {
 	float: left;
-	width: 30%;
+	width: 267px;
+	margin:0;
+	margin-right: 126px;
+	/*text-align: left;*/
+	padding:35px 0 30px 0;
+	list-style: none;
+
 }
 
 .social_item {
 	display: inline-block;
 	vertical-align: middle;
+	font-size: 0;
+	border-radius: 50%;
+	border: 3px solid rgba(255,255,255,.5);
+	
+}
+
+.social_item:hover {
+  border-color: rgba(255,255,255,.7);
+}
+
+.social_item:active .social_item-link {
+	box-shadow: inset 0 2px 1px #888;
 }
 
 .social_item-link {
 	display: inline-block;
-	height: 38px;
-	width: 38px;
+	height: 32px;
+	width: 32px;
 	border-radius: 50%;
+	background: rgba(255,255,255,.8);
 }
 
 .twitter {
@@ -491,27 +864,41 @@ ul {
 }
 
 .vk {
-		background: url(../img/vk.png) 0 0 no-repeat;
+	background: url(../img/vk.png) 0 0 no-repeat;
 }
 
-/*.about {
-	margin:0 auto;
-	font-size: 0;
-}*/
+
 
 .about_list {
+	float:left;
 	width:350px;
-	margin:auto;
+	font-size: 0px;
+	padding:35px 0 30px 0;
+	margin: 0;
+	list-style: none;
+}
+
+.about_list-item {
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 13px;
-	margin-right: 25px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	width: 165px;
+}
+
+.about_list-item a {
+	color: #fff;
 }
 
 .copyright {
 	float: right;
+	width: 200px;
+	padding-top: 20px;
 }
 
-.copyright p {
+.copyright p, 
+.copyright a {
 	font-size: 12px;
+	color: #fff;
 }
