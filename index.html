@@ -16,19 +16,19 @@
   			<header class="main_header">
 				<div class="main_header-top clearfix">
 					<div class="logo_block">
-						<a class="logo_link"><img src="img/main_logo.png" width="155px" height="65px" alt="Glaccy-shop logo"></a>
+						<a class="logo_link"><img src="img/main_logo.png" width="154px" height="64px" alt="Glaccy-shop logo"></a>
 					</div> 
 					<nav class="header_nav">
 						<ul class="header_list">
 							<li class="header_list-item">
-								<a href="catalog.html" class="header_list-link"> Каталог</a>									
+								<a href="#" class="header_list-link"> Каталог</a>									
 								<div class="catalog_nav">
 									<ul class="catalog_list">
 										<li class="catalog_list-item emphasized">
 											<a href="#" class="catalog_list-link">Новинки</a>
 										</li>
 										<li class="catalog_list-item">
-											<a href="#" class="catalog_list-link">Сливочное</a>
+											<a href="catalog.html" class="catalog_list-link">Сливочное</a>
 										</li>
 										<li class="catalog_list-item">
 											<a href="#" class="catalog_list-link">Щербеты</a>
@@ -52,31 +52,31 @@
 					</nav>
 					<nav class="user_block">
 						<ul class="user_block-list">
-							<li class="user_block-item">
+							<li class="user_block-item search_item">
 								<a href="#" class="user_block-link search"> Поиск</a>
 								<div class="search_block">
-									<form action="#">
+									<form action="#" method="get">
 										<fieldset class="search_field">
-											<input type="text" name="search_text" placeholder="Что ищем?" id="search_input">
+											<input type="text" name="search_text" id="search_input">
 											<label for="search_input" class="search_label"> Что ищем? </label>	
 										</fieldset>
 									</form>
 								</div>
 							</li>
-							<li class="user_block-item">
+							<li class="user_block-item enter_item">
 								<a href="#" class="user_block-link enter"> Вход </a>
 								<div class="enter_block">
-									<form action="#" method="post">
+									<form action="#" method="post" class="clearfix">
 										<fieldset class="enter_field">
-											<input type="email" id="user_email" placeholder="Электронная почта">
+											<input type="email" id="user_email" required>
 											<label for="user_email"> Электронная почта</label>
 										</fieldset>
 										<fieldset>
-											<input type="password" id="user_password" placeholder="Пароль">
+											<input type="password" id="user_password" required>
 											<label for="user_password"> Пароль </label>
 										</fieldset>
 										<div class="enter_submit">
-											<button type="submit" class="btn">Войти</button>
+											<button type="submit" class="btn enter_btn">Войти</button>
 											<div class="enter_links">
 												<a href="#"> Забыли пароль?</a>
 												<a href="#"> Новая регистрация</a>
@@ -85,7 +85,7 @@
 									</form>
 								</div> 	
 							</li>
-							<li class="user_block-item">
+							<li class="user_block-item cart_item">
 								<a href="#" class="user_block-link cart"> Пусто	</a>
 							</li>
 						</ul>
@@ -140,11 +140,10 @@
 				<ul class="products_list">
 					<li class="products_list-item">
 						<a href="#" class="products_item-link top">
-							<img src="img/products/1.png" alt="Сливочное с апельсиновым джемом" class="products_pic" width="267" height="267">
-							<b class="price"> Цена</b>
-						
-						<!-- (ВОПРОС) цену нужно вынести в отдельную ссылку, чтобы ее было видно? т.к. у ссылки, в которую цена обернута overflow hidden?-->
-						
+							<div class="products_img-block"> 
+								<img src="img/products/1.png" alt="Сливочное с апельсиновым джемом" class="products_pic" width="267" height="267">
+							</div>
+							<b class="price"> 310 Р/кг</b>
 						</a>
 						<p> <a href="#" class="products_name-link">Сливочное с апельсиновым джемом и цитрусовой стружкой</a></p>
 						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
@@ -152,24 +151,30 @@
 
 					<li class="products_list-item">
 						<a href="#" class="products_item-link top">
-							<img src="img/products/2.png" alt="Сливочно-кофейное с кусочками шоколада" class="products_pic" width="267" height="267">
-							<b class="price"> Цена</b>
+							<div class="products_img-block"> 
+								<img src="img/products/2.png" alt="Сливочно-кофейное с кусочками шоколада" class="products_pic" width="267" height="267">
+							</div>
+							<b class="price">380 Р/кг</b>
 						</a>
 						<p> <a href="#" class="products_name-link">Сливочно-кофейное с кусочками шоколада</a></p>
 						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 					<li class="products_list-item">
 						<a href="#" class="products_item-link top">
-							<img src="img/products/3.png" alt="Сливочно-клубничное с присыпкой из белого шоколада" class="products_pic" width="267" height="267">
-							<b class="price"> Цена</b>
+							<div class="products_img-block"> 
+								<img src="img/products/3.png" alt="Сливочно-клубничное с присыпкой из белого шоколада" class="products_pic" width="267" height="267">
+							</div>
+							<b class="price">355 Р/кг</b>
 						</a>
 						<p> <a href="#" class="products_name-link">Сливочно-клубничное с присыпкой из белого шоколада</a></p>
 						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
 					</li>
 					<li class="products_list-item">
 						<a href="#" class="products_item-link top">
-							<img src="img/products/4.png" alt="Сливочное крем-брюле с карамельной подливкой" class="products_pic" width="267" height="267">
-							<b class="price"> Цена</b>
+							<div class="products_img-block"> 
+								<img src="img/products/4.png" alt="Сливочное крем-брюле с карамельной подливкой" class="products_pic" width="267" height="267">
+							</div>
+							<b class="price">415 Р/кг</b>
 						</a>
 						<p> <a href="#" class="products_name-link">Сливочное крем-брюле с карамельной подливкой</a></p>
 						<a href="#" class="products_link-quickview btn"> Быстрый просмотр</a>
@@ -180,17 +185,17 @@
 			<section class="features">
 				<h2> Магазин Глейси  - это онлайн и офлайн магазин по продаже мороженого собственного производства на развес</h2>
 				<ul class="features_list">
-					<li class="features_item">
-						<span class="features_item-text"> Все наше мороженое изготавливается на собственном производстве, с использованием современного оборудования и проверенных временем технологий.</span>
+					<li class="features_item ice_cream">
+						Все наше мороженое изготавливается на собственном производстве, с использованием современного оборудования и проверенных временем технологий.
 					</li>
-					<li class="features_item">
-						<span class="features_item-text"> Закупка ингредиентов  производится только у проверенных фермерских хозяйств и компаний, с которыми нас связывает долговременное сотрудничество.</span>
+					<li class="features_item cow">
+						Закупка ингредиентов  производится только у проверенных фермерских хозяйств и компаний, с которыми нас связывает долговременное сотрудничество.
 					</li>
-					<li class="features_item">
-						<span class="features_item-text"> Для приготовления мороженого используются настоящие сливки и молоко высочайшего качества. Все дополнительные ингредиенты и добавки произведены из натурального, экологически чистого сырья. </span>
+					<li class="features_item leaf">
+						Для приготовления мороженого используются настоящие сливки и молоко высочайшего качества. Все дополнительные ингредиенты и добавки произведены из натурального, экологически чистого сырья.
 					</li>
-					<li class="features_item">
-						<span class="features_item-text"> Доставка нашего мороженого до заказчиков осуществляется в специальном термопаке, который не дает мороженому растаять в пути и позволяет сохранить превосходный вкус.	</span>
+					<li class="features_item term">
+						Доставка нашего мороженого до заказчиков осуществляется в специальном термопаке, который не дает мороженому растаять в пути и позволяет сохранить превосходный вкус.
 					</li>
 				</ul>	
 			</section>
@@ -205,7 +210,7 @@
 						<p> Подпишитесь на нашу сладкую рассылку и будете всегда в курсе всего самого вкусного, что у нас происходит. Обещаем не спамить и не слать всякой ненужной ерунды. Честно =) </p>
 						<form action="#" method="get">
 							<fieldset>
-								<input type="email" placeholder="Электронная почта" id="subscribe_email">
+								<input type="email" id="subscribe_email">
 								<label for="subscribe_email"> Электронная почта</label>
 							</fieldset>
 							<input type="submit" class="btn" value="Отправить">
@@ -216,6 +221,9 @@
 		</div>
 
 		<section class="map">
+			<div class="yandex_map">
+				<iframe src="https://api-maps.yandex.ru/frame/v1/-/C6qNFF8l" width="1200" height="430" frameborder="0"></iframe>		
+			</div>
 			<div class="container">
 				<div class="contacts">
 					<div class="contacts_block1">
@@ -227,22 +235,22 @@
 						<p class="bold">8 812 450-25-25</p>
 						<p>(c 10 до 20 ежедневно)</p>	
 					</div>
-					<a href="#" class="btn"> Форма обратной связи</a>
+					<a href="#" class="btn feedback_btn"> Форма обратной связи</a>
 				</div>	
 				<div class="feedback_form">
 					<form action="#" method="post">
 						<p><b>Мы обязательно Вам ответим!</b></p>	
-						<button class="feedback_close"></button>
+						<button type="button" class="feedback_close">Закрыть</button>
 						<fieldset>
-							<input type="text" id="feedback_username" placeholder="Как Вас зовут?">
+							<input type="text" id="feedback_username">
 							<label for="feedback_username"> Как Вас зовут? </label>
 						</fieldset>
 						<fieldset>
-							<input type="text" id="feedback_email" placeholder="Ваша почта для ответа?">
+							<input type="text" id="feedback_email">
 							<label for="feedback_email"> Ваша почта для ответа?</label>
 						</fieldset>
 						<fieldset>
-							<textarea name="feedback_text" id="feedback_text" cols="30" rows="8">Напишите что-нибудь...</textarea>
+							<textarea name="feedback_text" id="feedback_text" cols="30" rows="6"></textarea>
 							<label for="feedback_text"> Напишите что-нибудь...</label>
 						</fieldset>
 						<input type="submit" class="btn" value="Отправить">
@@ -285,14 +293,18 @@
 				</ul>
 
 				<div class="copyright">
-					<a href="https://up.htmlacademy.ru/htmlcss/17"> 
+					<a href="https://htmlacademy.ru/intensive/htmlcss"> 
 						<img src="img/logo_academy.png" class="logo_html-academy" alt="HTML Academy">
 					</a>
-					<p> Сделано в <a href="https://up.htmlacademy.ru/htmlcss/17">HTML Academy </a> &copy; 2017</p>
+					<p> Сделано в <a href="https://htmlacademy.ru/intensive/htmlcss">HTML Academy </a> &copy; 2017</p>
 				</div>
 			
 			</footer>
 		</div>
+		<div class="overlay"></div>
 	</div>
+<script src='js/inputs_behaviour.js'></script>
+<script src="js/feedback_form.js"></script>
+
 </body>
 </html>
