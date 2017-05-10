@@ -10,11 +10,11 @@ document.querySelectorAll("input").forEach(function(item){
 })
 
 var textarea = document.querySelector("textarea");
-	textarea.addEventListener("blur", function(){
+textarea.addEventListener("blur", function(){
 	console.log(this.value);
-    if (this.value.length) {
-      this.classList.add("active_input");
+  if (this.value.length) {
+    this.classList.add("active_input");
     } else {
       this.classList.remove("active_input");
     }
-  });
+});
