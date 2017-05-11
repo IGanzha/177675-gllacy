@@ -54,6 +54,7 @@ body > input[type="radio"] {
 }
 
 .btn {
+	font: inherit;
 	font-size: 18px;
 	line-height: 24px;
 	font-weight: 700;
@@ -64,8 +65,6 @@ body > input[type="radio"] {
 	padding:11px 16px;
 	text-align: center;
 	outline: none;
-
-	text-shadow: 0 2px 5px rgba(160, 32, 11, 0.76);
 	background: #f26843;
 	background:    -moz-linear-gradient(top, #f26843 0%, #e74a35 100%);
 	background: -webkit-linear-gradient(top, #f26843 0%, #e74a35 100%);
@@ -182,10 +181,8 @@ body > input[type="radio"] {
 .catalog_nav {
 	display: none;
 	position: absolute;
-	top: 37px;
 	width:144px;
-	z-index: 20;
-	
+	z-index: 20;	
 }
 
 .catalog_list {
@@ -744,6 +741,7 @@ body > input[type="radio"] {
 	font-size: 32px;
 	line-height: 44px;
 	color: #ffffff;
+	text-shadow: 0 2px 5px rgba(160, 32, 11, 0.76);
 }
 
 .slider_controls {
@@ -1460,6 +1458,10 @@ body > input[type="radio"] {
 	box-shadow: inset 0 0 0 1px #fff;
 }
 
+/*.filter_settings-fat label:disabled .checkbox_indicator {
+	border:1px solid rgba(255,255,255,0.4);
+}*/
+
 .filter_settings-fat label:last-child{
 	margin-right: 0;
 }
@@ -1490,23 +1492,31 @@ body > input[type="radio"] {
 	left:4px; 
 }
 
-.filter_settings_fillers {
+.filter_settings-fat input[type="radio"]:disabled + .checkbox_indicator{
+	border:1px solid rgba(255,255,255,0.4);
+}
+
+.filter_settings-fat input[type="radio"]:checked:disabled + .checkbox_indicator::before {
+	background-color: rgba(255,255,255,0.4);
+}
+
+.filter_settings-fillers {
 	padding-right: 18px;
 }
-.filter_settings_fillers input {
+.filter_settings-fillers input {
 	display: none;
 }
 
-.filter_settings_fillers label {
+.filter_settings-fillers label {
 	cursor: pointer;
 	margin-right: 19px;
 }
 
-.filter_settings_fillers label:last-child {
+.filter_settings-fillers label:last-child {
 	margin-right: 0px;
 }
 
-.filter_settings_fillers .checkbox_indicator {
+.filter_settings-fillers .checkbox_indicator {
 	position: relative;
 	display: inline-block;
 	vertical-align: top;
@@ -1517,19 +1527,19 @@ body > input[type="radio"] {
 	margin-right: 8px;
 }
 
-.filter_settings_fillers label:hover .checkbox_indicator {
+.filter_settings-fillers label:hover .checkbox_indicator {
 	box-shadow: inset 0 0 0 1px #fff;
 }
 
-.filter_settings_fillers .checkbox_indicator::before,
-.filter_settings_fillers .checkbox_indicator::after {
+.filter_settings-fillers .checkbox_indicator::before,
+.filter_settings-fillers .checkbox_indicator::after {
 	content: "";
 	position: absolute;
 	background-color: #fff;
 	border-radius: 1px;
 }
 
-.filter_settings_fillers input:checked + .checkbox_indicator::before {
+.filter_settings-fillers input:checked + .checkbox_indicator::before {
 	height: 2px;
 	width: 11px;
 	top:8px;
@@ -1537,7 +1547,7 @@ body > input[type="radio"] {
 	transform: rotate(-45deg);
 }
 
-.filter_settings_fillers input:checked + .checkbox_indicator::after  {
+.filter_settings-fillers input:checked + .checkbox_indicator::after  {
 	height: 2px;
 	width: 6px;
 	top: 9px;
@@ -1545,6 +1555,15 @@ body > input[type="radio"] {
 	transform: rotate(60deg);
 }
 
+
+.filter_settings-fillers input:disabled + .checkbox_indicator {
+	border:1px solid rgba(255,255,255,0.4);
+}
+
+.filter_settings-fillers input:checked:disabled + .checkbox_indicator::before,
+.filter_settings-fillers input:checked:disabled + .checkbox_indicator::after { 
+	background: rgba(255,255,255,0.4);
+}
 
 .filter_settings-item:last-child {
 	margin-right: 0;
@@ -1642,6 +1661,10 @@ body > input[type="radio"] {
 	background-color: rgba(255,255,255,0.2);	
 }
 
+.paginator_item:first-child:hover {
+	background:none; 
+}
+
 .paginator_item:last-child {
 	margin-right: 0;
 } 
@@ -1659,12 +1682,14 @@ body > input[type="radio"] {
 	padding: 4px;
 }
 
-/*.paginator_link:hover {
-
-}*/
+.current_page {
+	background-color: rgba(255,255,255,1);
+	color: black;
+	cursor: default;
+}
 
 .paginator_link:active {
-	background-color: rgba(255,255,255,1);
+;
 	color: black;
 }
 
@@ -1683,14 +1708,11 @@ body > input[type="radio"] {
 	height:18px;
 }
 
-
-
-
 .paginator_link-next::before {
 	content: "";
 	position: absolute;
-	top: 5px;
-	left:10px;
+	top:5px;
+	left:5px;
 	width:10px; 
 	height:18px;
 }
@@ -1711,6 +1733,7 @@ body > input[type="radio"] {
 	width: 20px;
 	margin-left: 2px;
 	padding-right: 0;
+	margin-right: -4px;
 }
 
 .footer {
@@ -1856,7 +1879,7 @@ body > input[type="radio"] {
 
 .copyright a {
 	display: inline-block;
-	margin-bottom: 5px;
+	margin-bottom: 3px;
 }
 
 .link_html-academy {

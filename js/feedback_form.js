@@ -12,20 +12,17 @@ link.addEventListener("click", function(event) {
 	event.preventDefault();
 	popup.classList.add("display_block");
 	overlay.classList.add("display_block");
-	
 	if (fdb_username_storage) {
 		feedback_username.value = fdb_username_storage;
-		feedback_email.focus();
+		if (fdb_email_storage) {
+			feedback_email.value = fdb_email_storage;
+			feedback_email.classList.add("active_input");
+		} else {
+			feedback_email.focus();	
+		}
 		feedback_username.classList.add("active_input");
 	} else {
 		feedback_username.focus();
-	}
-
-	if(fdb_email_storage) {
-		feedback_email.value = fdb_email_storage;
-		feedback_email.classList.add("active_input");
-	} else {
-		feedback_email.focus();
 	}
 });
 
