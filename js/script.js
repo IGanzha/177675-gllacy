@@ -1,3 +1,16 @@
+var inputs = document.querySelectorAll("input");
+inputs.forEach(function(item){
+	item.addEventListener("blur",function(){
+	if (item.value) {
+		console.log(item.value);
+		item.classList.add("active_input");
+	} else {
+		item.classList.remove("active_input");
+	}
+	})
+})
+
+if (document.querySelector(".feedback_btn")) {
 var link = document.querySelector(".feedback_btn");
 var popup = document.querySelector(".feedback_form");
 var close = document.querySelector(".feedback_close");
@@ -18,9 +31,9 @@ link.addEventListener("click", function(event) {
 			feedback_email.value = fdb_email_storage;
 			feedback_email.classList.add("active_input");
 		} else {
-			feedback_email.focus();	
+			feedback_email.focus(); 
 		}
-		feedback_username.classList.add("active_input");
+			feedback_username.classList.add("active_input");
 	} else {
 		feedback_username.focus();
 	}
@@ -37,45 +50,36 @@ overlay.addEventListener("click", function(event){
 	popup.classList.remove("display_block");
 	overlay.classList.remove("display_block");
 });
-
+  
 window.addEventListener("keydown", function(event) {
 	if (event.keyCode === 27) {
- 		if (popup.classList.contains("display_block")) {
+		if (popup.classList.contains("display_block")) {
 			popup.classList.remove("display_block");
 			overlay.classList.remove("display_block");
-        }
+		}
 	}
 });
-
+  
 form.addEventListener("submit", function(event) {
 	if (!feedback_email.value || !feedback_username.value) {
 		event.preventDefault();
 		popup.classList.remove("modal-error");
 		popup.offsetWidth = popup.offsetWidth;
 		popup.classList.add("modal-error");
-    } else {
+	} else {
 		localStorage.setItem("feedback_email", feedback_email.value);
 		localStorage.setItem("feedback_username", feedback_username.value);
 	}
 });
 
-document.querySelectorAll("input").forEach(function(item){
-  item.addEventListener("blur",function(){
-    console.log(this.value);
-    if (this.value.length) {
-      this.classList.add("active_input");
-    } else {
-      this.classList.remove("active_input");
-    }
-  });
+var textarea = document.querySelector("textarea");
+textarea.addEventListener("blur",function(){
+	if (textarea.value) {
+		console.log(textarea.value);
+		textarea.classList.add("active_input");
+	} else {
+		textarea.classList.remove("active_input");
+	}
 })
 
-var textarea = document.querySelector("textarea");
-textarea.addEventListener("blur", function(){
-	console.log(this.value);
-  if (this.value.length) {
-    this.classList.add("active_input");
-    } else {
-      this.classList.remove("active_input");
-    }
-});
+}
